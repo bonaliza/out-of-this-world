@@ -10,6 +10,7 @@
 #import "AstronomicalData.h"
 #import "OWSpaceObject.h"
 #import "OWSpaceImageViewController.h"
+#import "OWSpaceDataViewController.h"
 
 @interface OWOuterSpaceTableViewController ()
 
@@ -57,7 +58,14 @@
             
         }
     }
-   
+    if ([sender isKindOfClass:[NSIndexPath class]]) {
+        if([segue.destinationViewController isKindOfClass:[OWSpaceDataViewController class]]){
+            OWSpaceDataViewController *targetViewController = segue.destinationViewController;
+            NSIndexPath *path = sender;
+            OWSpaceObject *selectedObject = self.planets[path.row];
+            targetViewController.spaceObject = selectedObject;
+        }
+    }
 }
 
 
@@ -117,7 +125,10 @@
 //    
     return cell;
 }
-
+#pragma - mark uitableviewDelegate
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"push to space data" sender:indexPath ];
+}
 
 /*
 // Override to support conditional editing of the table view.
