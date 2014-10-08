@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YAA-fW-aup">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -8,10 +8,10 @@
         <scene sceneID="bQm-41-7MX">
             <objects>
                 <tableViewController id="iiR-dH-RZL" customClass="OWOuterSpaceTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4Ho-vU-vQK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="4Ho-vU-vQK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Cell" textLabel="kGk-hT-YWk" detailTextLabel="0ct-vd-oyG" style="IBUITableViewCellStyleSubtitle" id="CW7-jt-eoa">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -48,7 +48,13 @@
                             <outlet property="delegate" destination="iiR-dH-RZL" id="XAB-RO-u0D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Planets" id="heF-ZX-IiR"/>
+                    <navigationItem key="navigationItem" title="Planets" id="heF-ZX-IiR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="na6-Bg-ZMI">
+                            <connections>
+                                <segue destination="fEH-yI-6PF" kind="show" id="6zJ-SP-zNT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="qxO-Zw-PSm" kind="show" identifier="push to space data" id="Eq8-jZ-i3B"/>
                     </connections>
@@ -130,7 +136,128 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z7v-ZO-RjY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2034" y="134.25"/>
+            <point key="canvasLocation" x="1987.5" y="-56.25"/>
+        </scene>
+        <!--Add Space Object View Controller-->
+        <scene sceneID="qeJ-bq-Cnk">
+            <objects>
+                <viewController id="fEH-yI-6PF" customClass="OWAddSpaceObjectViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6N8-SC-PCU"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rvp-zF-Jiw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rV6-VW-zIo">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDo-bl-ls2">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="80" y="279" width="80" height="30"/>
+                                </variation>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HWM-J3-qES">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="43" y="28" width="314" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nickname" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZWr-Eu-RiF">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="43" y="66" width="314" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Diameter" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eZB-ap-yoV">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="43" y="109" width="314" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Temperature" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l7o-RI-5qI">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="43" y="147" width="314" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Number of moons" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DMK-pd-2Kh">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="43" y="185" width="314" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Interesting Fact" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="52t-xl-mB5">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="43" y="223" width="314" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpo-9h-22P">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.2748935415" green="0.70170261550000002" blue="0.076782709069999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="241" y="279" width="82" height="30"/>
+                                </variation>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="SDo-bl-ls2"/>
+                                <exclude reference="HWM-J3-qES"/>
+                                <exclude reference="ZWr-Eu-RiF"/>
+                                <exclude reference="eZB-ap-yoV"/>
+                                <exclude reference="l7o-RI-5qI"/>
+                                <exclude reference="DMK-pd-2Kh"/>
+                                <exclude reference="52t-xl-mB5"/>
+                                <exclude reference="lpo-9h-22P"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="SDo-bl-ls2"/>
+                                <include reference="HWM-J3-qES"/>
+                                <include reference="ZWr-Eu-RiF"/>
+                                <include reference="eZB-ap-yoV"/>
+                                <include reference="l7o-RI-5qI"/>
+                                <include reference="DMK-pd-2Kh"/>
+                                <include reference="52t-xl-mB5"/>
+                                <include reference="lpo-9h-22P"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="diameterTextField" destination="eZB-ap-yoV" id="6Nh-1D-4RK"/>
+                        <outlet property="interstingFactTextField" destination="52t-xl-mB5" id="sra-ca-ph6"/>
+                        <outlet property="nameTextField" destination="HWM-J3-qES" id="4M5-oa-1vb"/>
+                        <outlet property="nicknameTextField" destination="ZWr-Eu-RiF" id="byr-Wd-cBB"/>
+                        <outlet property="numberOfMoons" destination="DMK-pd-2Kh" id="ynP-cJ-fkL"/>
+                        <outlet property="temperatureTextfield" destination="l7o-RI-5qI" id="Zg4-sz-ZH0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b1e-gK-Hdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1987.5" y="588.75"/>
         </scene>
         <!--Space Image View Controller-->
         <scene sceneID="pJH-qC-dIy">
@@ -169,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cRP-Fd-fLO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2014.5" y="-608.25"/>
+            <point key="canvasLocation" x="1987.5" y="-693.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PTp-71-mh3">
